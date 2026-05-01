@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Windbaires
+ *
+ */
+module Glogica {
+}
