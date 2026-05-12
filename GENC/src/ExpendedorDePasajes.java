@@ -33,8 +33,7 @@ public class ExpendedorDePasajes {
 
     public ExpendedorDePasajes(double precioPorKm) {
     	validar(precioPorKm, "El precio por km es mayor a 0");
-    	this.precioPorKm = precioPorKm;
-    
+    	this.precioPorKm = precioPorKm;    
     	contadorPasajesVendidos = 0;
     	distanciaMaxima = 0;
     	sumadorDeDistancia = 0;
@@ -154,6 +153,9 @@ public class ExpendedorDePasajes {
      */
 
     public double calcularVentaTotal() {
+    	if (contadorPasajesVendidos == 0) {
+    		throw new IllegalStateException("No se vendieron pasajes aun");
+    	}
     	return sumadorDeDistancia * precioPorKm;
     }
     
