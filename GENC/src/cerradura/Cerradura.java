@@ -1,3 +1,4 @@
+package cerradura;
 
 // 9.	Implementar la clase Cerradura con los siguientes métodos. Indique axiomas de la clase, pre y post condiciones de los métodos.
 // Cuando una Cerradura se bloquea no puede volver a abrirse nunca más. 
@@ -22,9 +23,9 @@ bloqueada entonces siempre bloqueada
 (una vez true, nunca vuelve a false)
 **/
 
-public class Cerradura {
+ class Cerradura {
 	
-	private int claveDeApertura;
+	private int claveDeApertura; //Variables Instancias o Atributos	
 	private int cantidadDeFallosConsecutivosQueLaBloquean;
 	private boolean estaAbierta;
 	private boolean estaCerrada;
@@ -50,15 +51,16 @@ public class Cerradura {
 
     public Cerradura(int claveDeApertura,
                      int cantidadDeFallosConsecutivosQueLaBloquean) {
-    	validarClave(claveDeApertura);
+    	esClaveValida(claveDeApertura);
     	
     	if (cantidadDeFallosConsecutivosQueLaBloquean >= 6 || cantidadDeFallosConsecutivosQueLaBloquean <= 0) {
-    		throw new IllegalArgumentException("la cantidad de fallos consecutivos es numero mayor a cero y menor a 6");
+    		throw new Error ("la cantidad de fallos consecutivos es numero mayor a cero y menor a 6");
     	}
+    	// para lanzar excepciones tratarlas y no la hacemos entonces lanzo error
     	this.claveDeApertura = claveDeApertura;
     	this.cantidadDeFallosConsecutivosQueLaBloquean = cantidadDeFallosConsecutivosQueLaBloquean;
     	this.estaAbierta = false;
-    	this.estaCerrada = true;
+    	//this.estaCerrada = true;//revisar esto Pensarlo con negar esta abierta
     	this.bloqueada = false;
     	this.contadorDeFallosConsecutivos = 0;
     	this.contarAperturasExitosas = 0;
@@ -67,15 +69,23 @@ public class Cerradura {
     	
     }
     
-    private void validarClave(int clave) {
+    private boolean esClaveValida(int clave) {
+    	boolean esValida = true;
     	if (clave > 9999 || clave < 0) {
-    		throw new IllegalArgumentException("hasta 4 digitos mayores o iguales que cero y menores 10000.");
+    		//throw new Error("hasta 4 digitos mayores o iguales que cero y menores 10000.");
+    	    esValida = false;
     	}
-    }
+    	return esValida;
+    	
+    } //para validar uso booleano tratar de usar un solo return
+    // pinto / boton derecho / refactor / rename "me lo cambia en todos lados"
+    // me cambia toda la semantica
+    
+    //un booleano para validar una clave
     /**
      * pre: La cerradura no debe estar bloqueada
      * La cerradura no debe estar abierta
-     * 0 ≤ clave ≤ 9999
+     * 0 ≤ clave ≤ 9999 //esto fue invento 
      * 
      * post: 
      * Si la clave es correcta:
@@ -90,7 +100,7 @@ public class Cerradura {
      * contadorDeFallosConsecutivos++
      * contarAperturasFallidas++
      * 
-     * Si se alcanza el límite:
+     * Si se alcanza el límite de intentos fallidos consecutivos que la bloquean
      * bloqueada = true
      * 
      * @param clave
@@ -101,12 +111,16 @@ public class Cerradura {
     public boolean abrir(int clave) {
     	
     	if (bloqueada) {
-    		throw new IllegalStateException("La cerradura esta bloqueada");   		
+    		throw new Error("La cerradura esta bloqueada");   		
     	}
     	if (estaAbierta) {
-    		throw new IllegalStateException("La cerradura ya esta abierta");
+    		throw new Error("La cerradura ya esta abierta");
+    	}   	  	
+    	    	
+    	
+    	if (!esClaveValida(clave)) {
+    		throw new Error ("La clave es invalida"); //El error lo lanzo en el metodo
     	}
-    	validarClave(clave);
     	if (claveDeApertura != clave) {
     		contadorDeFallosConsecutivos++;
     		contarAperturasFallidas++;
@@ -130,11 +144,11 @@ public class Cerradura {
 
     public void cerrar() {
     	if (bloqueada) {
-    		throw new IllegalStateException("La cerradura fue bloqueda");
+    		throw new Error("La cerradura fue bloqueda");
     	}
     	
     	if (estaCerrada) {
-    		throw new IllegalStateException("La cerradura ya esta cerrada");
+    		throw new Error("La cerradura ya esta cerrada");
     	}
     	estaAbierta = false;
     	estaCerrada = true;
@@ -155,7 +169,7 @@ public class Cerradura {
      */
 
     public boolean estaCerrada() {
-    	return estaCerrada;
+    	return !estaAbierta();
     }
     
     /**
@@ -165,7 +179,7 @@ public class Cerradura {
 
     public boolean fueBloqueada() {
     	if (bloqueada) {
-    		throw new IllegalStateException("La cerradura fue bloqueada");
+    		throw new Error("La cerradura fue bloqueada");
     	}
     	if (cantidadDeFallosConsecutivosQueLaBloquean == contadorDeFallosConsecutivos) {
     		bloqueada = true;
