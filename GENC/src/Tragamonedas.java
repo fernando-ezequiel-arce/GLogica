@@ -3,7 +3,7 @@ class Tragamonedas {
 	private Tambor tambor1;
 	private Tambor tambor2;
 	private Tambor tambor3;
-	private int contadorDeTamboresActivos;
+	
 
     /**
      * post: los 3 Tambores del Tragamonedas están en la posición 1.
@@ -12,7 +12,7 @@ class Tragamonedas {
     	    this.tambor1 = new Tambor();
     	    this.tambor2 = new Tambor();
     	    this.tambor3 = new Tambor();
-    	    contadorDeTamboresActivos = 0;
+    	    
     	
     }
 
