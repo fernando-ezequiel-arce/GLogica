@@ -10,7 +10,7 @@ public class Arreglos_02 {
 	        throw new Error("Frutas inválidas");
 	    }
 
-	    this.nombresFrutas = nombresFrutas;
+	    this.nombresFrutas = nombresFrutas.clone();
 	}
 	
 	private boolean sonFrutasValidas(String[] frutas) {
@@ -22,11 +22,25 @@ public class Arreglos_02 {
 	        }
 	    }
 	    return true;
+	    
+	    // En arreglos no es necesario .trim(), ni .strip()
+	}
+	
+	private String obtenerFrutasFormateadas() {
+	    String resultado = "";
+	    
+	    for (int i = 0; i < nombresFrutas.length; i++) {
+	        resultado += "Indice: " + i + 
+	                     " Nombre: " + nombresFrutas[i] + "\n";
+	    }
+	    
+	    return resultado;
 	}
 	
 	
-	
-	
+	public void imprimieArreglo() {
+	    System.out.println(obtenerFrutasFormateadas());
+	}
 	
 
 }
