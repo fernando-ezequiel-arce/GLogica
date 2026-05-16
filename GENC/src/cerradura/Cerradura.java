@@ -23,12 +23,11 @@ bloqueada entonces siempre bloqueada
 (una vez true, nunca vuelve a false)
 **/
 
- class Cerradura {
+public class Cerradura {
 	
 	private int claveDeApertura; //Variables Instancias o Atributos	
 	private int cantidadDeFallosConsecutivosQueLaBloquean;
 	private boolean estaAbierta;
-	private boolean estaCerrada;
 	private int contadorDeFallosConsecutivos;
 	private boolean bloqueada;
 	private int contarAperturasExitosas;
@@ -130,8 +129,7 @@ bloqueada entonces siempre bloqueada
     	contarAperturasExitosas++;
     	contadorDeFallosConsecutivos = 0;
     	estaAbierta = true;
-    	estaCerrada = false;
-    		return true;   	 
+        		return true;   	 
     	    	
     }
     /**
@@ -147,12 +145,11 @@ bloqueada entonces siempre bloqueada
     		throw new Error("La cerradura fue bloqueda");
     	}
     	
-    	if (estaCerrada) {
+    	if (!estaAbierta) {
     		throw new Error("La cerradura ya esta cerrada");
     	}
     	estaAbierta = false;
-    	estaCerrada = true;
-    }
+    	}
     
     /**
      * 
