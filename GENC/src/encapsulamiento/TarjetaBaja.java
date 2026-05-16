@@ -1,3 +1,4 @@
+package encapsulamiento;
 
 //6.	Implementar la clase TarjetaBaja a partir de la siguiente declaración:
 

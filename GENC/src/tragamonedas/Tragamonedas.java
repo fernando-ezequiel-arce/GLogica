@@ -1,3 +1,5 @@
+package tragamonedas;
+
 class Tragamonedas {
 	
 	private Tambor tambor1;

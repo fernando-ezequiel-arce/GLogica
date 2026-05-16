@@ -1,3 +1,4 @@
+package arreglos;
 import java.util.Arrays;
 
 class Arreglos_01 {

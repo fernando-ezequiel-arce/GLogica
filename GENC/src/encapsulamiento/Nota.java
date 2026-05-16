@@ -1,3 +1,4 @@
+package encapsulamiento;
 public class Nota {
 	private int valorInicial;
 

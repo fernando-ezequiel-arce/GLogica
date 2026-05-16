@@ -1,3 +1,4 @@
+package geometria;
 // 10.	Implementar la clase ExpendedorDePasajes con los siguientes métodos. Indique axiomas de la clase, pre y post condiciones de los métodos.}
 
  /** Aximoas:

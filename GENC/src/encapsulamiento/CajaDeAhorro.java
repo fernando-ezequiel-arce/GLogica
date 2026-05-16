@@ -1,3 +1,4 @@
+package encapsulamiento;
 
 // 8.	Implementar la clase  CajaDeAhorro con la siguiente interfaz:
 

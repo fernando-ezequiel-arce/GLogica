@@ -1,3 +1,4 @@
+package tragamonedas;
 
 class Tambor {
 

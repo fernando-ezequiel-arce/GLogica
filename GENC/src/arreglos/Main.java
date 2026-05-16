@@ -1,14 +1,19 @@
-
+package arreglos;
 public class Main {
 
 
 	    public static void main(String[] args) {
+	    String[] frutas = {
+	    		    "manzana", "banana", "naranja",
+	    		    "uva", "pera", "mango"
+	    		     };
+	    String buscar = "naranja";
 	    	
 	    int []temps = {22, 18, 31, 27, 15, 29, 24};
 	    int[] notas = {7, 5, 8, 4, 9, 6, 5};
 	    int[] notas2 = {3, 5, 3, 2};
 	    
-	     Arreglos_01 array01 = new Arreglos_01(temps);
+	    Arreglos_01 array01 = new Arreglos_01(temps);
 	     
 	     array01.imprime_indice0();
 	     array01.imprime_ultimo_id();

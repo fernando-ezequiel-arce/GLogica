@@ -1,3 +1,4 @@
+package geometria;
 
 //5.	Implementar la clase Cubo a partir de la siguiente interfaz:
 

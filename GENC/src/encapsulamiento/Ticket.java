@@ -1,3 +1,4 @@
+package encapsulamiento;
 
 // 7.	Implementar la clase Ticket a partir de la siguiente interfaz
 

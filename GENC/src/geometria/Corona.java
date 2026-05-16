@@ -1,3 +1,5 @@
+package geometria;
+
 public class Corona {
 
 	private Circulo circuloInterno;
