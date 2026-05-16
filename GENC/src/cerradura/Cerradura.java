@@ -10,11 +10,12 @@ La clave es válida:
 La cantidad de fallos consecutivos para bloquear es válida:
 1 ≤ cantidadDeFallosConsecutivosQueLaBloquean ≤ 5
 Consistencia de estados:
-estaAbierta ≠ estaCerrada
 Estado inicial:
 estaAbierta = false
-estaCerrada = true
 bloqueada = false
+Consistencia de estados:
+estaAbierta = true, false
+estaCerrada = !estaAbierta
 contadorDeFallosConsecutivos ≥ 0
 contarAperturasExitosas ≥ 0
 contarAperturasFallidas ≥ 0
@@ -50,7 +51,11 @@ public class Cerradura {
 
     public Cerradura(int claveDeApertura,
                      int cantidadDeFallosConsecutivosQueLaBloquean) {
-    	esClaveValida(claveDeApertura);
+    	
+    	if (!esClaveValida(claveDeApertura)) {
+    	    throw new Error("Clave inválida");
+    	}
+    	
     	
     	if (cantidadDeFallosConsecutivosQueLaBloquean >= 6 || cantidadDeFallosConsecutivosQueLaBloquean <= 0) {
     		throw new Error ("la cantidad de fallos consecutivos es numero mayor a cero y menor a 6");
@@ -59,7 +64,6 @@ public class Cerradura {
     	this.claveDeApertura = claveDeApertura;
     	this.cantidadDeFallosConsecutivosQueLaBloquean = cantidadDeFallosConsecutivosQueLaBloquean;
     	this.estaAbierta = false;
-    	//this.estaCerrada = true;//revisar esto Pensarlo con negar esta abierta
     	this.bloqueada = false;
     	this.contadorDeFallosConsecutivos = 0;
     	this.contarAperturasExitosas = 0;
@@ -89,7 +93,7 @@ public class Cerradura {
      * post: 
      * Si la clave es correcta:
      * estaAbierta = true
-     * estaCerrada = false
+     * estaCerrada = !estaAbierta
      * contadorDeFallosConsecutivos = 0
      * contarAperturasExitosas++
      * 
@@ -121,10 +125,16 @@ public class Cerradura {
     		throw new Error ("La clave es invalida"); //El error lo lanzo en el metodo
     	}
     	if (claveDeApertura != clave) {
-    		contadorDeFallosConsecutivos++;
-    		contarAperturasFallidas++;
-    		return false;
+    	    contadorDeFallosConsecutivos++;
+    	    contarAperturasFallidas++;
+
+    	    if (contadorDeFallosConsecutivos == cantidadDeFallosConsecutivosQueLaBloquean) {
+    	        bloqueada = true;
+    	    }
+
+    	    return false;
     	}
+    	
     	
     	contarAperturasExitosas++;
     	contadorDeFallosConsecutivos = 0;
@@ -175,12 +185,7 @@ public class Cerradura {
      */
 
     public boolean fueBloqueada() {
-    	if (bloqueada) {
-    		throw new Error("La cerradura fue bloqueada");
-    	}
-    	if (cantidadDeFallosConsecutivosQueLaBloquean == contadorDeFallosConsecutivos) {
-    		bloqueada = true;
-    	}
+    	
     	
     	return bloqueada;
     		
