@@ -60,7 +60,7 @@ public class Cerradura {
     	if (cantidadDeFallosConsecutivosQueLaBloquean >= 6 || cantidadDeFallosConsecutivosQueLaBloquean <= 0) {
     		throw new Error ("la cantidad de fallos consecutivos es numero mayor a cero y menor a 6");
     	}
-    	// para lanzar excepciones tratarlas y no la hacemos entonces lanzo error
+    	// para lanzar excepciones tratarlas y no la hacemos, entonces lanzo error
     	this.claveDeApertura = claveDeApertura;
     	this.cantidadDeFallosConsecutivosQueLaBloquean = cantidadDeFallosConsecutivosQueLaBloquean;
     	this.estaAbierta = false;
