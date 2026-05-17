@@ -7,7 +7,7 @@ public class Main {
 	    		    "manzana", "banana", "naranja",
 	    		    "uva", "pera", "mango"
 	    		     };
-	    String buscar = "naranja";
+	    //String buscar = "naranja";
 	    	
 	    int []temps = {22, 18, 31, 27, 15, 29, 24};
 	    int[] notas = {7, 5, 8, 4, 9, 6, 5};
@@ -35,6 +35,9 @@ public class Main {
 	     array03.imprime_promedio();
 	     array03.imprimir_suma_for_each();
 	     
+	     Arreglos_02 array04 = new Arreglos_02(frutas);
+	     array04.imprimeArreglo();
+	     array04.imprime();
 	     
 	    }
 	}
