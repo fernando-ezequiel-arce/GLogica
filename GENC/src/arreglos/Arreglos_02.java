@@ -1,48 +1,48 @@
 package arreglos;
 
 public class Arreglos_02 {
-    
+
     private String[] nombresFrutas;
-  
+
+    /**
+     * PRE: el arreglo de nombresFrutas no puede ser null y sus elementos deben ser Strings válidos.
+     * POST: se crea un objeto Arreglos_02 con una copia defensiva del arreglo recibido,
+     *       normalizando y validando cada elemento.
+     */
     public Arreglos_02(String[] nombresFrutas) {
-    	
+
         if (nombresFrutas == null) {
             throw new Error("El array es null");
         }
 
         this.nombresFrutas = new String[nombresFrutas.length];
-        /** Se realiza una copia defensiva creando un nuevo arreglo con el mismo tamaño que el recibido. 
-         * Esto evita que el arreglo externo modifique el estado interno del objeto.
-         */
 
         for (int i = 0; i < nombresFrutas.length; i++) {
 
             String normalizada = normalizar(nombresFrutas[i]);
-            
-            // Se declara una variable local y se le asigna el valor retornado por el método normalizar
-            
+
             if (!esNombreValido(normalizada)) {
                 throw new Error("El texto es inválido");
             }
 
             this.nombresFrutas[i] = normalizada;
-            
         }
     }
 
-    
     private String normalizar(String texto) {
         if (texto == null) return null;
         return texto.trim().replaceAll("\\s+", " ");
     }
 
-    
     private boolean esNombreValido(String texto) {
         if (texto == null) return false;
         return texto.matches("[a-zA-Z ]+");
     }
 
-    
+    /**
+     * PRE: el nombre no puede ser null y debe ser válido.
+     * POST: devuelve true si la fruta existe en el arreglo, false en caso contrario.
+     */
     private boolean contieneFruta(String nombre) {
 
         String buscada = normalizar(nombre);
@@ -59,7 +59,11 @@ public class Arreglos_02 {
 
         return false;
     }
-    
+
+    /**
+     * PRE: el nombre no puede ser null.
+     * POST: imprime si la fruta fue encontrada o no.
+     */
     public void existeLaFruta(String nombre) {
 
         if (contieneFruta(nombre)) {
@@ -69,8 +73,8 @@ public class Arreglos_02 {
         }
     }
 
-
     private String obtenerFrutasFormateadas() {
+
         StringBuilder resultado = new StringBuilder();
 
         for (int i = 0; i < nombresFrutas.length; i++) {
@@ -88,7 +92,6 @@ public class Arreglos_02 {
         System.out.println(obtenerFrutasFormateadas());
     }
 
-    
     private String obtenerFrutas() {
         return java.util.Arrays.toString(nombresFrutas);
     }
@@ -96,23 +99,26 @@ public class Arreglos_02 {
     public void imprime() {
         System.out.println(obtenerFrutas());
     }
-    
+
+    /**
+     * PRE: el arreglo debe estar inicializado.
+     * POST: devuelve la posición de la primera "naranja" o -1 si no existe.
+     */
     private int buscarNaranja() {
 
-        int posicion = -1;
-        boolean encontrado = false;
-
-        for (int i = 0; i < nombresFrutas.length && !encontrado; i++) {
-
+        for (int i = 0; i < nombresFrutas.length; i++) {
             if (nombresFrutas[i].equalsIgnoreCase("naranja")) {
-                encontrado = true;
-                posicion = i;
+                return i;
             }
         }
 
-        return posicion;
+        return -1;
     }
-    
+
+    /**
+     * PRE: el arreglo debe estar inicializado.
+     * POST: imprime la posición de la primera naranja encontrada.
+     */
     public void imprimePosicionDeLaPrimerNaranjaEncontrada() {
 
         int posicion = buscarNaranja();
@@ -121,7 +127,11 @@ public class Arreglos_02 {
             System.out.println("La posición de la primera naranja encontrada es: " + posicion);
         }
     }
-    
+
+    /**
+     * PRE: el arreglo debe estar inicializado.
+     * POST: devuelve un arreglo con todas las posiciones de "naranja".
+     */
     private int[] buscarTodasLasNaranjas() {
 
         int[] temp = new int[nombresFrutas.length];
@@ -143,7 +153,11 @@ public class Arreglos_02 {
 
         return posiciones;
     }
-    
+
+    /**
+     * PRE: el arreglo debe estar inicializado.
+     * POST: imprime todas las posiciones de "naranja".
+     */
     public void imprimePosicionDeTodasLasNaranjasEncontradas() {
 
         int[] posiciones = buscarTodasLasNaranjas();
@@ -155,7 +169,11 @@ public class Arreglos_02 {
 
         System.out.println("Posiciones de las naranjas: " + java.util.Arrays.toString(posiciones));
     }
-    
+
+    /**
+     * PRE: el nombre debe ser válido.
+     * POST: devuelve un arreglo con todas las posiciones donde aparece la fruta.
+     */
     private int[] buscarTodasLasFrutas(String nombre) {
 
         String buscada = normalizar(nombre);
@@ -183,7 +201,11 @@ public class Arreglos_02 {
 
         return posiciones;
     }
-    
+
+    /**
+     * PRE: el nombre debe ser válido.
+     * POST: imprime las posiciones donde aparece la fruta o informa si no existe.
+     */
     public void imprimePosicionesDeFruta(String nombre) {
 
         int[] posiciones = buscarTodasLasFrutas(nombre);
