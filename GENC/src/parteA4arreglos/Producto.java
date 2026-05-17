@@ -9,8 +9,11 @@ class Producto {
     	String normalizado = normalizar(nombre);
     	
     	if (!esTextoValido(normalizado)){
-    		throw new Error ("Texto invalido");
+    		throw new Error ("Texto invalido");   	
+    	}
     	
+    	if (!esPrecioValido(precio)) {
+    		throw new Error ("El precio es mayor a 0");
     	}
     	
         this.nombre = nombre;
@@ -24,6 +27,11 @@ class Producto {
      
     private boolean esTextoValido(String texto) {
     	if (texto == null) return false;
-    	return texto.matches("[a-z,A-Z]+");
+    	return texto.matches("[a-zA-Z]+");
     }
+    
+    private boolean esPrecioValido(double valor) {
+    	return valor > 0;
+    }
+    
 }   
