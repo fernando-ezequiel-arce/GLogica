@@ -16,7 +16,7 @@ class Producto {
     		throw new Error ("El precio es mayor a 0");
     	}
     	
-        this.nombre = nombre;
+        this.nombre = normalizado;;
         this.precio = precio;
     }
     
