@@ -18,6 +18,21 @@ public class GestionPeliculas {
              }  
             }
 	       
-    }	
+    }
+    
+    private int duracionTotal() {
+
+        int total = 0;
+
+        for (Pelicula p : a) {
+            total += p.getDuracion();
+        }
+
+        return total;
+    }
+    
+    public void imprimeDuracionMaraton() {
+    	System.out.println("La duracion total de la maraton es: "+ duracionTotal() + "minutos" );
+    }
     
 }
