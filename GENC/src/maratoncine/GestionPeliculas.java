@@ -5,7 +5,7 @@ public class GestionPeliculas {
 	private Pelicula [] a;
 	
 	public GestionPeliculas(Pelicula [] a) {
-		this.a = a;
+		this.a = a.clone();
 	}
 
 
