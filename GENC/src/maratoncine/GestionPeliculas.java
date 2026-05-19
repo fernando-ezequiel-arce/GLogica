@@ -35,4 +35,22 @@ public class GestionPeliculas {
     	System.out.println("La duracion total de la maraton es: "+ duracionTotal() + "minutos" );
     }
     
+    private Pelicula peliculaMasCorta() {
+
+        Pelicula masCorta = a[0];
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i].getDuracion() < masCorta.getDuracion()) {
+                masCorta = a[i];
+            }
+        }
+
+        return masCorta;
+    }
+    
+    public void imprimirMasCorta() {
+    	  System.out.println("La película más corta es: " + peliculaMasCorta() + " min)");
+    }
+    
+    
 }
