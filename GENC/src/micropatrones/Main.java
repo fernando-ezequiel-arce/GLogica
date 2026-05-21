@@ -15,6 +15,8 @@ public class Main {
 		array.imprimeEnQuePosicionSeEncuentra(13);
 		
 		array.imprimeEnQuePosicionSeEncuentra(7);
+		array.imprimirCantidadDeNumerosPares();
+		array.imprimirSumaDePosicionesImpares();
 		
 		
 	
