@@ -17,6 +17,9 @@ public class Main {
 		array.imprimeEnQuePosicionSeEncuentra(7);
 		array.imprimirCantidadDeNumerosPares();
 		array.imprimirSumaDePosicionesImpares();
+		array.imprimirMaximio();
+		array.imprimirMinimoYMaximo();
+		array.imprimirMayoresA10();
 		
 		
 	
