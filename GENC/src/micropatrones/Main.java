@@ -28,6 +28,7 @@ public class Main {
 		array.imprimirArreglo();
 		array.eliminarDuplicadosYActualizar();
 		array.imprimirArreglo();
+		array.imprimiSiEstaOrdenadoDeMenorAMayor();
 			
 			
 		

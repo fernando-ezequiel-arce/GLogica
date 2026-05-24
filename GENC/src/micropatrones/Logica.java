@@ -213,6 +213,25 @@ public void eliminarDuplicadosYActualizar() {
     a = eliminarDuplicados();
 }
  
+
+	
+
+    private boolean estaOrdenadoDeMenorAMayor() {
+    	boolean ordenado = true;
+
+    	for (int i = 0; i < a.length - 1 && ordenado; i++) {
+    	    if (a[i] > a[i + 1]) {
+    	    	ordenado = false;
+    	        return false;}
+    	}
+    	return true;
+    }
+    
+    public void imprimiSiEstaOrdenadoDeMenorAMayor() {
+    	System.out.println("Es "+ (estaOrdenadoDeMenorAMayor())+" el orden del arreglo");
+    }
+
+ 
 }
 	
 	 
