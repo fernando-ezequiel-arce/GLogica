@@ -4,7 +4,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr = {7, 12, 3, 25, 8, 19, 4, 10, 6}; 
+		int[] arr = {7, 12, 3, 3, 25, 25, 8, 19, 4, 10, 6}; 
 		
 		Logica array = new Logica(arr);
 		
@@ -20,9 +20,15 @@ public class Main {
 		array.imprimirMaximio();
 		array.imprimirMinimoYMaximo();
 		array.imprimirMayoresA10();
-		
-		
-	
+		array.imprimirArregloRotado(1);
+		array.imprimirArregloRotado(2);
+		array.imprimirArregloRotado(5);
+		array.imprimirArreglo();
+		array.imprimirArregloSinDuplicados();
+		array.imprimirArreglo();
+		array.eliminarDuplicadosYActualizar();
+		array.imprimirArreglo();
+			
 			
 		
 

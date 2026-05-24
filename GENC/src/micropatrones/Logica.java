@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Logica {
 	
-	private final int []a;
+	private  int []a;
 
 	
 	public Logica(int []a) {
@@ -158,6 +158,60 @@ public class Logica {
 	 System.out.println(Arrays.toString(filtrarMayoresA10()));
 	 
  }
+ 
+ private int[] rotar(int N) {
+	    int[] temp = new int[a.length];
+
+	    N = N % a.length; 
+	    for (int i = 0; i < a.length; i++) {
+	        temp[(i + N) % a.length] = a[i];
+	    }
+
+	    return temp;
+	}
+ 
+ public void imprimirArregloRotado(int N) {
+	    System.out.println(Arrays.toString(rotar(N)));
+	}
+ 
+private int[] eliminarDuplicados() {
+	    int[] aux = new int[a.length];
+	    int tam = 0;
+
+	    for (int i = 0; i < a.length; i++) {
+	        boolean yaEsta = false;
+
+	        for (int j = 0; j < tam && !yaEsta; j++) {
+	            if (a[i] == aux[j]) {
+	                yaEsta = true;
+	            }
+	        }
+
+	        if (!yaEsta) {
+	            aux[tam++] = a[i];
+	        }
+	    }
+
+	    int[] resultado = new int[tam];
+
+	    for (int i = 0; i < tam; i++) {
+	        resultado[i] = aux[i];
+	    }
+
+	    return resultado;
+	}
+
+public void imprimirArregloSinDuplicados() {
+    System.out.println(Arrays.toString(eliminarDuplicados()));
+}
+
+public void imprimirArreglo() {
+    System.out.println(Arrays.toString(a));
+}
+
+public void eliminarDuplicadosYActualizar() {
+    a = eliminarDuplicados();
+}
  
 }
 	
