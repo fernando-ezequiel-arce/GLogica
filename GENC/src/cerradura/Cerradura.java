@@ -75,8 +75,7 @@ public class Cerradura {
     private boolean esClaveValida(int clave) {
     	boolean esValida = true;
     	if (clave > 9999 || clave < 0) {
-    		//throw new Error("hasta 4 digitos mayores o iguales que cero y menores 10000.");
-    	    esValida = false;
+    		    	    esValida = false;
     	}
     	return esValida;
     	
