@@ -2,6 +2,8 @@ package implementacion;
 
 import java.util.Arrays;
 
+import micropatrones.MinYMax;
+
 public class Acumulacion {
     
     private double[] a;
@@ -58,9 +60,9 @@ public class Acumulacion {
     // Encontrá el máximo usando una comparación explícita con if.
     private double hallarMaximo() {
         double max = a[0]; 
-        for (double num : a) {
-            if (num > max) {
-                max = num; 
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > max) {
+                max = a[i]; 
             }
         }
         return max;
@@ -82,4 +84,25 @@ public class Acumulacion {
     public void imprimirMaximoMath() {
         System.out.println("El maximo del arreglo (usando Math.max) es: " + hallarMaximoMath());
     }
+    
+    //Encontrá el mínimo y el máximo en un solo recorrido.
+    
+    private MinYMax minMax() {
+   	 double min = a[0];
+   	 double max = a[0];
+   	 for (int i = 1; i < a.length; i++) {
+   	     min = Math.min(min, a[i]);
+   	     max = Math.max(max, a[i]);
+   	 }
+   	 return new MinYMax(min, max); 
+   }
+    
+    public void imprimirMinimoYMaximo() {
+   	 MinYMax r = minMax(); 
+
+   	 System.out.println("Min: " + r.min());
+   	 System.out.println("Max: " + r.max());
+    
+   }
 }
+   
