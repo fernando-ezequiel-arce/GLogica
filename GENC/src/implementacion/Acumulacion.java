@@ -58,6 +58,7 @@ public class Acumulacion {
     }
     
     // Encontrá el máximo usando una comparación explícita con if.
+    
     private double hallarMaximo() {
         double max = a[0]; 
         for (int i = 1; i < a.length; i++) {
