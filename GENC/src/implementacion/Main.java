@@ -25,6 +25,7 @@ public class Main {
 		arr2.imprimeProductoAcumulado();
 		arr2.imprimirPromedio();
 		arr2.imprimirMaximo();
+		arr2.imprimirMinimoYMaximo();
 		
 		
 
