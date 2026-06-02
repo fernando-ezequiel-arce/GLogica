@@ -20,7 +20,7 @@ public class Logica {
 			if (a[i] == numero) {
 				return true;
 			}
-		}
+		} // compare  with para recuperar
 		
 		return false;	
 		

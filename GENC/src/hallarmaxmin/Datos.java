@@ -1,6 +1,7 @@
 package hallarmaxmin;
 
-public class Datos {
+public class Datos //Extremo MinMax    
+ {
 	
 	int min;
 	int max;
