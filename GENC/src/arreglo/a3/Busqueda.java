@@ -60,4 +60,10 @@ public class Busqueda {
 			System.out.println("La "+ fruta + " fue encontrada en la posicion: "+ posicion);
 		    }
 		}
+	
+	public static void main (String [] args) {
+		Busqueda fruta = new Busqueda();
+		fruta.imprimirBusqueda("naranja");
+		fruta.imprimirEncuentra("kiwi");
+	}
 }
