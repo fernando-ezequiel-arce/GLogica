@@ -14,7 +14,9 @@ public class Main {
 		arreglo.recorreArreglo();
 		arreglo.imprimirSumaTotal();
 		arreglo.imprimirProductoMasCaro();
-		
+		arreglo.cambiarPrecioPan(90);
+		arreglo.recorreArreglo();
+		arreglo.imprimirSumaTotal();
 
 	}
 

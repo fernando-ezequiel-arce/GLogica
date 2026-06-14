@@ -44,9 +44,24 @@ public class Comercio {
 	    System.out.println("El producto mas caro es: " + p.obtenerNombre());
 	}
 	
+	public void cambiarPrecioPan(double nuevoPrecio) {
+		 if (!validarPrecio(nuevoPrecio)) {
+	            throw new IllegalArgumentException("El precio debe ser mayor que cero");
+	        }
+	    for (Producto producto : a) {
+	        if (producto.obtenerNombre().equalsIgnoreCase("pan")) {
+	            producto.cambiarPrecio(nuevoPrecio);
+	            return;
+	        }
+	    }
 	}
 	
+	 private boolean validarPrecio(double precio) {
+		 return precio > 0;
+	       
+	    }
 	
+}
 	
 
 
