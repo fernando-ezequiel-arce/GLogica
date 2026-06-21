@@ -100,9 +100,9 @@ public class Estacionamiento {
 			}
 		}
 
-		double porcentaje = ((double) ocupadosCount * 100) / cantidadDeLugares;
+		return ((double) ocupadosCount * 100) / cantidadDeLugares;
 
-		return 0.0;
+		//return 0.0;
 	}
 
 	/**
